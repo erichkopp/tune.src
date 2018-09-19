@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tunes</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- REQUIRES PAGE TO FULLY RELOAD TO KEEP TURBOLINKS FROM MESSING UP JQUERY -->
+    <meta name="turbolinks-visit-control" content="reload">
+
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- LINK TO MATERIAL ICONS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+  </head>
+
+  <body>
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Tune.src</a>
+      <a href="#" data-target="mobile-only" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">My Tunes</a></li>
+        <li><a href="#">Log Out</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+  <ul class="sidenav" id="mobile-only">
+    <li><a href="#">My Tunes</a></li>
+    <li><a href="#">Log Out</a></li>
+  </ul>
+
+
+
+<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+<%= link_to "Sign In", new_user_session_path %>
+
+<%= link_to "Edir User Registration", edit_user_registration_path %>
+<%= link_to "User Registration", user_registration_path %>
+
+<br>
+     
+
+    <%= yield %>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>

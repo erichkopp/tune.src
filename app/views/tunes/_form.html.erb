@@ -1,0 +1,59 @@
+<%= form_with(model: tune, local: true) do |form| %>
+  <% if tune.errors.any? %>
+    <div id="error_explanation">
+      <p><%= pluralize(tune.errors.count, "error") %> prohibited this tune from being saved:</p>
+
+      <ul>
+      <% tune.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %><br>
+
+  <div class="input-field">
+    <%= form.label :tunename %>
+    <%= form.text_field :tunename %>
+  </div>
+
+  <div class="input-field">
+    <%= form.label :key %>
+    <%= form.text_field :key %>
+  </div>
+
+  <div class="input-field">
+    <%= form.label :tuning %>
+    <%= form.text_field :tuning %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video %>
+    <%= form.file_field :video %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes %>
+  </div>
+
+
+<!-- HIDDEN FIELD TO STORE USER_ID FOR EACH TUNE -->
+  <div class="field">
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+
+
+  <br>
+  <div class="actions">
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+    </button>
+  </div>
+
+<% end %>
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+<div class="container">
+  <h2>Sign up</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+   <%= devise_error_messages! %>
+
+
+    <div class="input-field">
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    </div>
+
+    <div class="input-field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <p>(<%= @minimum_password_length %> characters minimum)</p>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="input-field">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="input-field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="input-field">
+      <%= f.label :location %>
+      <%= f.text_field :location %>
+    </div>
+
+    <div class="input-field">
+      <%= f.label :bio %>
+      <%= f.text_field :bio %>
+    </div>
+
+    <div class="input-field">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <br><br>
+
+    <div class="actions">
+      <button class="btn waves-effect waves-light" type="submit" name="action">Sign Up
+      <i class="material-icons left">done</i>
+      </button>
+    </div>
+
+  <% end %>
+
+<br><br><br>
+</div>

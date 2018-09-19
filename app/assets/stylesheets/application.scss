@@ -1,0 +1,53 @@
+@import "materialize/components/color-variables";
+$primary-color: color("purple", "lighten-2") !default;
+$secondary-color: color("purple", "base") !default;
+@import "materialize";
+
+.sidenav {
+	width: 200px;
+}
+
+
+.new_tune {
+	padding: 0.75rem;
+}
+
+
+.thumb {
+	width: 200px;
+	height: 120px;
+	background-color: darkgrey;
+}
+
+
+.row .col {
+	padding: 0 0.75rem;
+	padding-bottom: 0.75rem;
+}
+
+
+.more {
+	float: right;
+	color: purple;
+}
+
+.more_options {
+	/*width: 200px !important;*/
+	/*position: relative !important;*/
+	/*left: 100px !important;*/
+}
+
+
+
+.video_player {
+	width: 600px;
+	height: 360px;
+	line-height: 360px;
+	/*margin: auto;*/
+	background-color: inherit;
+}
+
+
+.video_player * {
+	vertical-align: middle;
+}
