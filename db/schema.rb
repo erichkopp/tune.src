@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_18_155719) do
+ActiveRecord::Schema.define(version: 2018_09_20_152812) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2018_09_18_155719) do
   create_table "tunes", force: :cascade do |t|
     t.string "tunename"
     t.string "key"
-    t.string "tuning"
+    t.string "fiddle_tuning"
     t.text "notes"
     t.integer "user_id"
     t.datetime "created_at", null: false

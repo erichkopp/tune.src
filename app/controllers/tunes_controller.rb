@@ -70,6 +70,6 @@ class TunesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tune_params
-      params.require(:tune).permit(:tunename, :key, :tuning, :notes, :user_id, :video)
+      params.require(:tune).permit(:tunename, :key, :fiddle_tuning, :notes, :user_id, :video)
     end
 end

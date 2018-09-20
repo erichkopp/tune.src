@@ -9,12 +9,10 @@
   <div class="video_player">
     <%= video_tag(url_for(@tune.video), style:'width:auto; height:100%', controls: '' ) %>
   </div>
-<%= image_tag @tune.video.preview(resize: "100x100>") %>
-
 
   <strong>Key: </strong><%= @tune.key.capitalize %><br>
 
-  <strong>Tuning: </strong><%= @tune.tuning.upcase %><br>
+  <strong>Fiddle Tuning: </strong><%= @tune.fiddle_tuning.upcase %><br>
 
  <strong>Uploaded By:</strong>
   <%= @tune.user.username %>
@@ -29,6 +27,3 @@
 </div>
 
 <br><br><br>
-
-
-

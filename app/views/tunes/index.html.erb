@@ -10,33 +10,33 @@
 
 <br><br>
 
-
 <div class="container">
   <div class="row">
     <% @tunes.each do |tune| %>
     <div class="col">
-      <strong><%= tune.tunename.capitalize %></strong>
-      <div class="thumb">
-        #
-      </div>
-      <!-- Dropdown Trigger -->
-      <a class='dropdown-trigger' href='#' data-turbolinks="false" data-target='more_options<%= tune.id %>'><i class="material-icons more">more_horiz</i></a>
-      <!-- Dropdown Structure -->
-      <ul id='more_options<%= tune.id %>' class='dropdown-content more_options'>
-        <li><a href="#"><i class="material-icons">playlist_add</i></a></li>
-        <% if current_user && current_user.admin || current_user && current_user.id == tune.user.id %>
-          <li><a href=<%= edit_tune_path(tune) %>><i class="material-icons">edit</i></a></li>
-          <li>
-            <%= link_to tune, method: :delete, data: { confirm: 'Are you sure?'} do %>
-            <i class="material-icons">delete</i>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-      <%= tune.key.capitalize %><br>
-      <%= tune.tuning.upcase %><br>
-      <%= link_to 'Show more', tune %>
-      <!-- <td><a class="waves-effect waves-light" href="tunes/<%= tune.id %>"><i class="material-icons right">add</i>Show More</a></td> -->
+      <%= link_to(tune) do %>
+        <strong class="tune_title"><%= tune.tunename.capitalize %></strong>
+        <div class="thumb">
+          <i class="material-icons play_hover">play_circle_filled</i>
+          <%= image_tag tune.video.preview(resize: "200x200") %>
+        </div>
+        <!-- Dropdown Trigger -->
+        <a class='dropdown-trigger' href='#' data-turbolinks="false" data-target='more_options<%= tune.id %>'><i class="material-icons more">more_horiz</i></a>
+        <!-- Dropdown Structure -->
+        <ul id='more_options<%= tune.id %>' class='dropdown-content more_options'>
+          <li><a href="#"><i class="material-icons">playlist_add</i></a></li>
+          <% if current_user && current_user.admin || current_user && current_user.id == tune.user.id %>
+            <li><a href=<%= edit_tune_path(tune) %>><i class="material-icons">edit</i></a></li>
+            <li>
+              <%= link_to tune, method: :delete, data: { confirm: 'Are you sure?'} do %>
+              <i class="material-icons">delete</i>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+        <%= tune.key.capitalize %><br>
+        <%= tune.fiddle_tuning.upcase %><br>
+      <% end %>
     </div>
   <% end %>
   </div>
