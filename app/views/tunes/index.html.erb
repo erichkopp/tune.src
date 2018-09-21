@@ -35,7 +35,16 @@
           <% end %>
         </ul>
         <%= tune.key.capitalize %><br>
-        <%= tune.fiddle_tuning.upcase %><br>
+        <% if tune.fiddle_tuning %>
+          <%= tune.fiddle_tuning.upcase %>
+        <% end %>
+        <% if tune.fiddle_tuning && tune.banjo_tuning %>
+          <strong>|</strong>
+        <% end %>
+        <% if tune.banjo_tuning %>
+          <%= tune.banjo_tuning.upcase %>
+        <% end %>
+          <br>
       <% end %>
     </div>
   <% end %>

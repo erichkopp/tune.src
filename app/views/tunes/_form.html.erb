@@ -26,10 +26,14 @@
     <%= form.text_field :fiddle_tuning %>
   </div>
 
-  <div class="field">
-    <%= form.label :video %>
-    <%= form.file_field :video %>
+  <div class="input-field">
+    <%= form.label :banjo_tuning %>
+    <%= form.text_field :banjo_tuning %>
   </div>
+
+  <br><div class="field">
+    <%= form.file_field :video %>
+  </div><br>
 
   <div class="field">
     <%= form.label :notes %>

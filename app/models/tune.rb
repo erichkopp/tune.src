@@ -4,7 +4,7 @@ class Tune < ApplicationRecord
 
 	validates :tunename, presence: true
 	validates :key, presence: true
-	validates :fiddle_tuning, presence: true
+	# validates :fiddle_tuning, presence: true
 	validates :notes, length: {maximum: 500, too_long: "can't be more than 500 characters"}, on: :create
 	validate :video_and_type
 

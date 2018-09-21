@@ -11,11 +11,15 @@
   </div>
 
   <strong>Key: </strong><%= @tune.key.capitalize %><br>
+  <% if @tune.fiddle_tuning %>
+    <strong>Fiddle Tuning: </strong><%= @tune.fiddle_tuning.upcase %><br>
+  <% end %>
+  <% if @tune.banjo_tuning %>
+    <strong>Banjo Tuning: </strong><%= @tune.banjo_tuning.upcase %><br>
+  <% end %>
 
-  <strong>Fiddle Tuning: </strong><%= @tune.fiddle_tuning.upcase %><br>
-
- <strong>Uploaded By:</strong>
-  <%= @tune.user.username %>
+  <strong>Uploaded By:</strong>
+    <%= @tune.user.username %>
 
   <p><%= @tune.notes %></p>
 
