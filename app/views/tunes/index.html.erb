@@ -1,53 +1,124 @@
 <p id="notice"><%= notice %></p>
 
 <!-- <h1>Tunes</h1> -->
-
+<br>
+<!-- BUTTON FOR LARGE SCREENS -->
 <% if current_user %>
-  <div class="container new_tune">
-    <a class="waves-effect waves-light btn" href=<%= new_tune_path %>><i class="material-icons left">add</i>Add Tune</a>
+  <div class="container hide-on-med-and-down">
+    <div class="wrapper">
+      <div class="new_tune">
+        <a class="waves-effect waves-light btn" href=<%= new_tune_path %>><i class="material-icons left">add</i>Add Tune</a>
+      </div>
+    </div>
   </div>
 <% end %>
 
-<br><br>
-
-<div class="container">
-  <div class="row">
-    <% @tunes.each do |tune| %>
-    <div class="col">
-      <%= link_to(tune) do %>
-        <strong class="tune_title"><%= tune.tunename.capitalize %></strong>
-        <div class="thumb">
-          <i class="material-icons play_hover">play_circle_filled</i>
-          <%= image_tag tune.video.preview(resize: "200x200") %>
-        </div>
-        <!-- Dropdown Trigger -->
-        <a class='dropdown-trigger' href='#' data-turbolinks="false" data-target='more_options<%= tune.id %>'><i class="material-icons more">more_horiz</i></a>
-        <!-- Dropdown Structure -->
-        <ul id='more_options<%= tune.id %>' class='dropdown-content more_options'>
-          <li><a href="#"><i class="material-icons">playlist_add</i></a></li>
-          <% if current_user && current_user.admin || current_user && current_user.id == tune.user.id %>
-            <li><a href=<%= edit_tune_path(tune) %>><i class="material-icons">edit</i></a></li>
-            <li>
-              <%= link_to tune, method: :delete, data: { confirm: 'Are you sure?'} do %>
-              <i class="material-icons">delete</i>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-        <%= tune.key.capitalize %><br>
-        <% if tune.fiddle_tuning %>
-          <%= tune.fiddle_tuning.upcase %>
-        <% end %>
-        <% if tune.fiddle_tuning && tune.banjo_tuning %>
-          <strong>|</strong>
-        <% end %>
-        <% if tune.banjo_tuning %>
-          <%= tune.banjo_tuning.upcase %>
-        <% end %>
-          <br>
-      <% end %>
+<!-- BUTTON FOR MOBILE/TABLETS -->
+<% if current_user %>
+  <div class="container hide-on-med-and-up show-on-medium">
+    <div class="wrapper_mobile">
+      <div class="new_tune">
+        <a class="waves-effect waves-light btn" href=<%= new_tune_path %>><i class="material-icons left">add</i>Add Tune</a>
+      </div>
     </div>
-  <% end %>
+  </div>
+<% end %>
+
+<br>
+
+<!-- CSS GRID FOR LARGE SCREENS -->
+<div class="container hide-on-med-and-down">
+  <div class="wrapper">
+    <% @tunes.each do |tune| %>
+      <div class="tune_card">
+        <%= link_to(tune) do %>
+          <strong class="tune_title truncate"><%= tune.tunename.capitalize %></strong>
+          <div class="thumb">
+            <i class="material-icons play_hover">play_circle_filled</i>
+            <%= image_tag tune.video.preview(resize: "200x200") %>
+          </div>
+          <!-- Dropdown Trigger -->
+          <a class='dropdown-trigger' href='#' data-turbolinks="false" data-target='more_options<%= tune.id %>'><i class="material-icons more">more_horiz</i></a>
+          <!-- Dropdown Structure -->
+          <ul id='more_options<%= tune.id %>' class='dropdown-content more_options'>
+            <li><a href="#"><i class="material-icons">playlist_add</i></a></li>
+            <% if current_user && current_user.admin || current_user && current_user.id == tune.user.id %>
+              <li><a href=<%= edit_tune_path(tune) %>><i class="material-icons">edit</i></a></li>
+              <li>
+                <%= link_to tune, method: :delete, data: { confirm: 'Are you sure?'} do %>
+                <i class="material-icons">delete</i>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+          <%= tune.key.capitalize %><br>
+          <% if tune.fiddle_tuning %>
+            <%= tune.fiddle_tuning.upcase %>
+          <% end %>
+          <% if tune.fiddle_tuning && tune.banjo_tuning != nil %>
+            <strong>|</strong>
+          <% end %>
+          <% if tune.banjo_tuning %>
+            <%= tune.banjo_tuning.upcase %>
+          <% end %>
+            <br>
+        <% end %>    
+      </div>
+    <% end %>
   </div>
 </div>
 
+<!-- CSS GRID FOR MOBILE/TABLES -->
+<div class="container hide-on-med-and-up show-on-medium">
+  <div class="wrapper_mobile">
+    <% @tunes.each do |tune| %>
+      <div class="tune_card">
+        <%= link_to(tune) do %>
+          <strong class="tune_title truncate"><%= tune.tunename.capitalize %></strong>
+          <div class="thumb">
+            <i class="material-icons play_hover">play_circle_filled</i>
+            <%= image_tag tune.video.preview(resize: "200x200") %>
+          </div>
+          <!-- Dropdown Trigger -->
+          <a class='dropdown-trigger' href='#' data-turbolinks="false" data-target='more_options<%= tune.id %>_mobile'><i class="material-icons more">more_horiz</i></a>
+          <!-- Dropdown Structure -->
+          <ul id='more_options<%= tune.id %>_mobile' class='dropdown-content more_options'>
+            <li><a href="#"><i class="material-icons">playlist_add</i></a></li>
+            <% if current_user && current_user.admin || current_user && current_user.id == tune.user.id %>
+              <li><a href=<%= edit_tune_path(tune) %>><i class="material-icons">edit</i></a></li>
+              <li>
+                <%= link_to tune, method: :delete, data: { confirm: 'Are you sure?'} do %>
+                <i class="material-icons">delete</i>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+          <%= tune.key.capitalize %><br>
+          <% if tune.fiddle_tuning %>
+            <%= tune.fiddle_tuning.upcase %>
+          <% end %>
+          <% if tune.fiddle_tuning && tune.banjo_tuning %>
+            <strong>|</strong>
+          <% end %>
+          <% if tune.banjo_tuning %>
+            <%= tune.banjo_tuning.upcase %>
+          <% end %>
+            <br>
+        <% end %>    
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+<br><br><br><br>
+
+
+<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+<%= link_to "Sign In", new_user_session_path %>
+
+<%= link_to "Edir User Registration", edit_user_registration_path %>
+<%= link_to "User Registration", user_registration_path %>

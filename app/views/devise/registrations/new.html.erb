@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Sign up</h2>
+  <h4><strong>Create Profile</strong></h4>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
    <%= devise_error_messages! %>
@@ -12,9 +12,6 @@
 
     <div class="input-field">
       <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <p>(<%= @minimum_password_length %> characters minimum)</p>
-      <% end %>
       <%= f.password_field :password, autocomplete: "new-password" %>
     </div>
 
@@ -41,6 +38,11 @@
     <div class="input-field">
       <%= f.label :email %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar %>
     </div>
 
     <br><br>

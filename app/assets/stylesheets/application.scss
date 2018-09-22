@@ -4,15 +4,63 @@ $secondary-color: color("purple", "base") !default;
 @import "materialize";
 
 
-.sidenav {
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+  grid-row-gap: 1em;
+}
+
+.wrapper_mobile {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 10px;
+  grid-row-gap: 1em;
+}
+
+.tune_card {
 	width: 200px;
+	margin: 0 auto;
 }
 
 
 .new_tune {
-	padding: 0.75rem;
+	width: 200px;
+	margin: 0 auto;
 }
 
+
+
+
+
+/*nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
+	height: 50px;
+	line-height: 50px;
+}*/
+
+
+.avatar_container {
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+	border-radius: 50%;
+	/*margin-top: 7px;*/
+}
+
+
+.avatar {
+	object-fit: cover;
+/*	height: 100%;
+	width: 100%;*/
+	height: 50px;
+	width: 50px;
+}
+
+
+.sidenav {
+	width: 200px;
+}
 
 .tune_title {
 	color: black;
@@ -51,8 +99,8 @@ a:hover i {
 
 
 .row .col {
-	padding: 0 0.75rem;
-	padding-bottom: 0.75rem;
+	/*padding: 0 0.75rem;*/
+	/*padding-bottom: 0.75rem;*/
 }
 
 
@@ -70,8 +118,8 @@ a:hover i {
 
 
 .video_player {
-	width: 800px;
-	height: 480px;
+	width: 600px;
+	height: 360px;
 	line-height: 360px;
 	/*margin: auto;*/
 	background-color: inherit;

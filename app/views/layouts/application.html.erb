@@ -29,27 +29,44 @@
       <a href="/" class="brand-logo">Tune.src</a>
       <a href="#" data-target="mobile-only" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">My Tunes</a></li>
-        <li><a href="#">Log Out</a></li>
+
       </ul>
     </div>
   </nav>
 </div>
 
-  <ul class="sidenav" id="mobile-only">
-    <li><a href="#">My Tunes</a></li>
-    <li><a href="#">Log Out</a></li>
+<ul class="sidenav" id="mobile-only">
+  <li><a href="#">My Tunes</a></li>
+  <li><a href="#">Log Out</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+    <li><%= link_to "Sign In", new_user_session_path %></li>
+    <li><%= link_to "Edir User Registration", edit_user_registration_path %></li>
+    <li><a href="#!">three</a></li>
+    <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+    <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
   </ul>
+        
 
 
 
-<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-<%= link_to "Sign In", new_user_session_path %>
 
-<%= link_to "Edir User Registration", edit_user_registration_path %>
-<%= link_to "User Registration", user_registration_path %>
 
-<br>
      
 
     <%= yield %>
