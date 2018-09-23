@@ -22,36 +22,23 @@
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
   </head>
 
-  <body>
-<div class="navbar-fixed">
-  <nav>
-    <div class="nav-wrapper">
-      <a href="/" class="brand-logo">Tune.src</a>
-      <a href="#" data-target="mobile-only" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
+<body>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo">Tune.src</a>
+        <a href="#" data-target="mobile-only" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
 
-      </ul>
-    </div>
-  </nav>
-</div>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
-<ul class="sidenav" id="mobile-only">
-  <li><a href="#">My Tunes</a></li>
-  <li><a href="#">Log Out</a></li>
-</ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <ul class="sidenav" id="mobile-only">
+    <li><a href="#">My Tunes</a></li>
+    <li><a href="#">Log Out</a></li>
+  </ul>
   <!-- Dropdown Structure -->
   <ul id='dropdown1' class='dropdown-content'>
     <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>

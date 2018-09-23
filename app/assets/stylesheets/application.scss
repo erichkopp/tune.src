@@ -4,10 +4,27 @@ $secondary-color: color("purple", "base") !default;
 @import "materialize";
 
 
+.sidenav {
+	margin-top: 64px;
+	z-index: 0;
+}
+
+
+.main {
+  padding-left: 200px;
+}
+
+@media only screen and (max-width : 992px) {
+  .main {
+    padding-left: 0;
+  }
+}
+
+
 
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   column-gap: 10px;
   grid-row-gap: 1em;
 }
