@@ -1,32 +1,86 @@
 <p id="notice"><%= notice %></p>
-<div class="container">
-
-  <p id="notice"><%= notice %></p>
 
 
-  <h4><strong><%= @tune.tunename.capitalize %></strong></h4>
+<ul class="sidenav sidenav-fixed key_tuning_sidenav">
+  <li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
+      <p></p><br>
+      <li>
+        <a class="collapsible-header sidenav_arrow" id="arrow1">Key<i class="material-icons">arrow_drop_down_circle</i></a>
+        <div class="collapsible-body">
+          <ul>
+            <li><a href="#!">A</a></li>
+            <li><a href="#!">Bb</a></li>
+            <li><a href="#!">C</a></li>
+            <li><a href="#!">D</a></li>
+            <li><a href="#!">F</a></li>
+            <li><a href="#!">G</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <ul class="collapsible collapsible-accordion">
+      <li>
+        <a class="collapsible-header sidenav_arrow" id="arrow2">Fiddle Tuning<i class="material-icons">arrow_drop_down_circle</i></a>
+        <div class="collapsible-body">
+          <ul>
+            <li><a href="#!">GDAE</a></li>
+            <li><a href="#!">ADAE</a></li>
+            <li><a href="#!">AEAE</a></li>
+            <li><a href="#!">AEAC#</a></li>
+            <li><a href="#!">GDAD</a></li>
+            <li><a href="#!">DDAD</a></li>
+            <li><a href="#!">GDGD</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <ul class="collapsible collapsible-accordion">
+      <li>
+        <a class="collapsible-header sidenav_arrow" id="arrow3">Banjo Tuning<i class="material-icons">arrow_drop_down_circle</i></a>
+        <div class="collapsible-body">
+          <ul>
+            <li><a href="#!">GDAE</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li><br>
+</ul>
 
-  <div class="video_player">
-    <%= video_tag(url_for(@tune.video), style:'width:auto; height:100%', controls: '' ) %>
+
+
+
+
+
+<div class="main">
+  <div class="show_main">
+
+    <h4><strong><%= @tunename %></strong></h4>
+
+    <div class="video_player">
+      <%= video_tag(url_for(@tune.video), style:'width:auto; height:100%', controls: '' ) %>
+    </div>
+
+    <strong>Key: </strong><%= @tune.key.capitalize %><br>
+    <% if @tune.fiddle_tuning %>
+      <strong>Fiddle Tuning: </strong><%= @tune.fiddle_tuning.upcase %><br>
+    <% end %>
+    <% if @tune.banjo_tuning != "" && @tune.banjo_tuning != nil %>
+      <strong>Banjo Tuning: </strong><%= @tune.banjo_tuning.upcase %><br>
+    <% end %>
+
+    <strong>Uploaded By:</strong>
+      <%= @tune.user.username %>
+
+    <p><%= @tune.notes %></p>
+
+    <% if current_user && current_user.admin || current_user && current_user.id == @tune.user.id %>
+      <%= link_to 'Edit', edit_tune_path(@tune) %> |
+    <% end %>
+    <%= link_to 'Back', tunes_path %>
+    
   </div>
-
-  <strong>Key: </strong><%= @tune.key.capitalize %><br>
-  <% if @tune.fiddle_tuning %>
-    <strong>Fiddle Tuning: </strong><%= @tune.fiddle_tuning.upcase %><br>
-  <% end %>
-  <% if @tune.banjo_tuning %>
-    <strong>Banjo Tuning: </strong><%= @tune.banjo_tuning.upcase %><br>
-  <% end %>
-
-  <strong>Uploaded By:</strong>
-    <%= @tune.user.username %>
-
-  <p><%= @tune.notes %></p>
-
-  <% if current_user && current_user.admin || current_user && current_user.id == @tune.user.id %>
-    <%= link_to 'Edit', edit_tune_path(@tune) %> |
-  <% end %>
-  <%= link_to 'Back', tunes_path %>
 
 </div>
 

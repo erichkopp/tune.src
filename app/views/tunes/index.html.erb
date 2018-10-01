@@ -1,30 +1,55 @@
-<p id="notice"><%= notice %></p>
 
 
 
 
 
 
-<ul class="sidenav sidenav-fixed">
-  <li>Fiddle Tuning</li>
-    <li><a href="#">GDAE</a></li>
-    <li><a href="#">ADAE</a></li>
-    <li><a href="#">AEAE</a></li>
-  <li>Banjo Tuning</li>
-    <li><a href="#">gDGBD</a></li>
-    <li><a href="#">gDGBD</a></li>
-    <li><a href="#">gDGBD</a></li>
-  <li>Key</li>
-    <li><a href="#">A</a></li>
-    <li><a href="#">Bb</a></li>
-    <li><a href="#">C</a></li>
-    <li><a href="#">D</a></li>
-    <li><a href="#">F</a></li>
-    <li><a href="#">G</a></li>
-  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-  <li><%= link_to "Sign In", new_user_session_path %></li>
-  <li><%= link_to "Edir User Registration", edit_user_registration_path %></li>
-  <li><%= link_to "User Registration", user_registration_path %></li>
+
+<ul class="sidenav sidenav-fixed key_tuning_sidenav">
+  <li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
+      <p></p><br>
+      <li>
+        <a class="collapsible-header sidenav_arrow" id="arrow1">Key<i class="material-icons">arrow_drop_down_circle</i></a>
+        <div class="collapsible-body">
+          <ul>
+            <li><a href="#!">A</a></li>
+            <li><a href="#!">Bb</a></li>
+            <li><a href="#!">C</a></li>
+            <li><a href="#!">D</a></li>
+            <li><a href="#!">F</a></li>
+            <li><a href="#!">G</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <ul class="collapsible collapsible-accordion">
+      <li>
+        <a class="collapsible-header sidenav_arrow" id="arrow2">Fiddle Tuning<i class="material-icons">arrow_drop_down_circle</i></a>
+        <div class="collapsible-body">
+          <ul>
+            <li><a href="#!">GDAE</a></li>
+            <li><a href="#!">ADAE</a></li>
+            <li><a href="#!">AEAE</a></li>
+            <li><a href="#!">AEAC#</a></li>
+            <li><a href="#!">GDAD</a></li>
+            <li><a href="#!">DDAD</a></li>
+            <li><a href="#!">GDGD</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <ul class="collapsible collapsible-accordion">
+      <li>
+        <a class="collapsible-header sidenav_arrow" id="arrow3">Banjo Tuning<i class="material-icons">arrow_drop_down_circle</i></a>
+        <div class="collapsible-body">
+          <ul>
+            <li><a href="#!">GDAE</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li><br>
 </ul>
 
 
@@ -65,9 +90,17 @@
 
     <div class="wrapper hide-on-med-and-down">
       <% @tunes.each do |tune| %>
+        <% tune_array = tune.tunename.split %>
+        <% tunename_arr = [] %>
+        <% tunename = "" %>
+        <% tune_array.each do |word| %>
+          <% word = word.capitalize + " " %>
+          <% tunename_arr.push(word) %>
+          <% tunename = tunename_arr.join %>
+        <% end %>
         <div class="tune_card">
           <%= link_to(tune) do %>
-            <strong class="tune_title truncate"><%= tune.tunename.capitalize %></strong>
+            <strong class="tune_title truncate"><%= tunename %></strong>
             <div class="thumb">
               <i class="material-icons play_hover">play_circle_filled</i>
               <%= image_tag tune.video.preview(resize: "200x200") %>

@@ -28,26 +28,32 @@
       <div class="nav-wrapper">
         <a href="/" class="brand-logo">Tune.src</a>
         <a href="#" data-target="mobile-only" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
+   <!-- Dropdown Trigger -->
+  <% if current_user %>
+    <a class='dropdown-trigger right' href='#' data-target='avatar_drop'><%= current_user.username %></a>
+    <!-- Dropdown Structure -->
+    <ul id='avatar_drop' class='dropdown-content'>
+      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+      <li><%= link_to "Sign In", new_user_session_path %></li>
+      <li><%= link_to "Edir User Registration", edit_user_registration_path %></li>
+      <li><%= link_to "User Registration", user_registration_path %></li>
+    </ul>
+  <% else %>
+    <ul class="right">
+      <li><%= link_to "Sign In", new_user_session_path %></li>
+    </ul>
+  <% end %>
 
-        </ul>
       </div>
     </nav>
   </div>
+
 
   <ul class="sidenav" id="mobile-only">
     <li><a href="#">My Tunes</a></li>
     <li><a href="#">Log Out</a></li>
   </ul>
-  <!-- Dropdown Structure -->
-  <ul id='dropdown1' class='dropdown-content'>
-    <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-    <li><%= link_to "Sign In", new_user_session_path %></li>
-    <li><%= link_to "Edir User Registration", edit_user_registration_path %></li>
-    <li><a href="#!">three</a></li>
-    <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-    <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-  </ul>
+
         
 
 

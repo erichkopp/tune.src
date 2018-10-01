@@ -11,6 +11,14 @@ class TunesController < ApplicationController
   # GET /tunes/1
   # GET /tunes/1.json
   def show
+    tune_array = @tune.tunename.split
+    @tunename_arr = []
+    tune_array.each do |word|
+      word = word.capitalize + " "
+      @tunename_arr.push(word)
+      @tunename = @tunename_arr.join
+    end
+      return @tunename
   end
 
   # GET /tunes/new
