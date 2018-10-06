@@ -11,15 +11,7 @@
     <!-- REQUIRES PAGE TO FULLY RELOAD TO KEEP TURBOLINKS FROM MESSING UP JQUERY -->
     <meta name="turbolinks-visit-control" content="reload">
 
-
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <!-- LINK TO MATERIAL ICONS -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
   </head>
 
 <body>
@@ -30,7 +22,7 @@
         <a href="#" data-target="mobile-only" class="sidenav-trigger"><i class="material-icons">menu</i></a>
    <!-- Dropdown Trigger -->
   <% if current_user %>
-    <a class='dropdown-trigger right' href='#' data-target='avatar_drop'><%= current_user.username %></a>
+    <a class='dropdown-trigger right' href='#' data-target='avatar_drop'><%= image_tag(url_for(current_user.avatar)) %></a>
     <!-- Dropdown Structure -->
     <ul id='avatar_drop' class='dropdown-content'>
       <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>

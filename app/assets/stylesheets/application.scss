@@ -1,3 +1,4 @@
+//= require material_icons
 @import "materialize/components/color-variables";
 $primary-color: color("purple", "lighten-2") !default;
 $secondary-color: color("purple", "base") !default;
@@ -77,13 +78,22 @@ nav {
 	/*margin-top: 7px;*/
 }
 
+.dropdown-trigger {
+	padding-top: 7px;
+}
 
-.avatar {
-	object-fit: cover;
-/*	height: 100%;
-	width: 100%;*/
-	height: 50px;
+
+.dropdown-trigger img {
 	width: 50px;
+	height: 50px;
+	object-fit: cover;
+	border: 2px solid white;
+	border-radius: 50%;
+}
+
+
+#avatar_drop {
+	top: -64px;
 }
 
 
@@ -134,16 +144,18 @@ a:hover i {
 
 
 .more {
-	float: right;
 	color: purple;
+	/*float: right;*/
 }
 
 .more_options {
-	/*width: 200px !important;*/
-	/*position: relative !important;*/
-	/*left: 100px !important;*/
+	/*border-left: 100px !important;*/
 }
 
+
+strong {
+	font-weight: bold;
+}
 
 
 .video_player {

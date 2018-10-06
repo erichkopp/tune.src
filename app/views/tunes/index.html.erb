@@ -10,7 +10,10 @@
     <ul class="collapsible collapsible-accordion">
       <p></p><br>
       <li>
-        <a class="collapsible-header sidenav_arrow" id="arrow1">Key<i class="material-icons">arrow_drop_down_circle</i></a>
+        <a class="collapsible-header sidenav_arrow" id="1">Key
+          <i class="material-icons arrow1" style="display: none">arrow_drop_down_circle</i>
+          <i class="material-icons r270 arrow1">arrow_drop_down_circle</i>
+        </a>
         <div class="collapsible-body">
           <ul>
             <li><a href="#!">A</a></li>
@@ -25,7 +28,10 @@
     </ul>
     <ul class="collapsible collapsible-accordion">
       <li>
-        <a class="collapsible-header sidenav_arrow" id="arrow2">Fiddle Tuning<i class="material-icons">arrow_drop_down_circle</i></a>
+        <a class="collapsible-header sidenav_arrow" id="2">Fiddle Tuning
+          <i class="material-icons arrow2" style="display: none">arrow_drop_down_circle</i>      
+          <i class="material-icons r270 arrow2">arrow_drop_down_circle</i>              
+        </a>
         <div class="collapsible-body">
           <ul>
             <li><a href="#!">GDAE</a></li>
@@ -41,7 +47,10 @@
     </ul>
     <ul class="collapsible collapsible-accordion">
       <li>
-        <a class="collapsible-header sidenav_arrow" id="arrow3">Banjo Tuning<i class="material-icons">arrow_drop_down_circle</i></a>
+        <a class="collapsible-header sidenav_arrow" id="3">Banjo Tuning
+          <i class="material-icons arrow3" style="display: none">arrow_drop_down_circle</i>
+          <i class="material-icons r270 arrow3">arrow_drop_down_circle</i>
+        </a>
         <div class="collapsible-body">
           <ul>
             <li><a href="#!">GDAE</a></li>
@@ -106,7 +115,7 @@
               <%= image_tag tune.video.preview(resize: "200x200") %>
             </div>
             <!-- Dropdown Trigger -->
-            <a class='dropdown-trigger' href='#' data-turbolinks="false" data-target='more_options<%= tune.id %>'><i class="material-icons more">more_horiz</i></a>
+            <a class='dropdown-trigger right' href='#' data-turbolinks="false" data-target='more_options<%= tune.id %>'><i class="material-icons more">more_horiz</i></a>
             <!-- Dropdown Structure -->
             <ul id='more_options<%= tune.id %>' class='dropdown-content more_options'>
               <li><a href="#"><i class="material-icons">playlist_add</i></a></li>
