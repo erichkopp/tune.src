@@ -18,26 +18,27 @@
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <a href="/" class="brand-logo">Tune.src</a>
+        <a href="/" class="brand-logo">tune.src</a>
         <a href="#" data-target="mobile-only" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-   <!-- Dropdown Trigger -->
-  <% if current_user %>
-    <a class='dropdown-trigger right' href='#' data-target='avatar_drop'>
-        <%= image_tag(url_for(current_user.avatar)) %>
-    </a>
-    <!-- Dropdown Structure -->
-    <ul id='avatar_drop' class='dropdown-content'>
-      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-      <li><%= link_to "Sign In", new_user_session_path %></li>
-      <li><%= link_to "Edir User Registration", edit_user_registration_path %></li>
-      <li><%= link_to "User Registration", user_registration_path %></li>
-    </ul>
-  <% else %>
-    <ul class="right">
-      <li><%= link_to "Sign In", new_user_session_path %></li>
-    </ul>
-  <% end %>
 
+        <!-- Dropdown Trigger -->
+        <% if current_user %>
+          <a class='dropdown-trigger right' href='#' data-target='avatar_drop'>
+              <%= image_tag(url_for(current_user.avatar)) %>
+          </a>
+          <!-- Dropdown Structure -->
+          <ul id='avatar_drop' class='dropdown-content'>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+            <li><%= link_to "Edir User Registration", edit_user_registration_path %></li>
+            <li><%= link_to "User Registration", user_registration_path %></li>
+          </ul>
+        <% else %>
+          <ul class="right">
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+          </ul>
+        <% end %>
+        <i class="material-icons right">queue_music</i>
       </div>
     </nav>
   </div>

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :tunes
+
+  resources :tunes do
+  	resources :comments
+  end
+
   devise_for :users
 
   root to: 'tunes#index'

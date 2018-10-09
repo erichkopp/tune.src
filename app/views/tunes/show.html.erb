@@ -17,6 +17,7 @@
     <% if @tune.fiddle_tuning %>
       <strong>Fiddle Tuning: </strong><%= @tune.fiddle_tuning.upcase %><br>
     <% end %>
+
     <% if @tune.banjo_tuning != "" && @tune.banjo_tuning != nil %>
       <strong>Banjo Tuning: </strong><%= @tune.banjo_tuning.upcase %><br>
     <% end %>
@@ -32,6 +33,54 @@
     <%= link_to 'Back', tunes_path %>
 
   </div>
+
+
+
+
+
+<div class="comments_window">
+  <% if @tune.comments %>
+    <% @tune.comments.each do |comment| %>
+      <div class="comment">
+
+        <div class="comment_avatar">
+          <%= image_tag(url_for(comment.user.avatar)) %>
+        </div>
+
+        <div class="user_and_content">
+          <div class="username_comment">
+            <strong><%= comment.user.username %></strong>
+            <% if comment.user == current_user %>
+              <%= link_to tune_comment_path(@tune, comment), method: :delete, data: { confirm: 'Are you sure?'} do %>
+                <i class="material-icons comment_delete">delete</i>
+              <% end %>
+            <% end %>            
+          </div>
+
+          <div class="comment_content">
+            <%= comment.content %>
+          </div>
+          <br>
+        </div>
+    <% end %>
+  <% end %>  
+
+    <div class="comment_form">
+      <%= form_for [@tune, @tune.comments.new] do |f| %>
+        <div class="comment_avatar">
+          <%= image_tag(url_for(current_user.avatar)) %>
+        </div>
+        <div class="comment_field">
+          <%= f.text_field :content, placeholder: "Add a comment..." %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 </div>
 

@@ -30,17 +30,19 @@ $(document).ready(function() {
 
   $('.collapsible').collapsible();
 
-  $('#1').click(function() {
-  	$('.arrow1').toggle();
-  });
 
-  $('#2').click(function() {
-  	$('.arrow2').toggle();
-  });
+  // Sidenav Arrows
+    $('#1').click(function() {
+    	$('.arrow1').toggle();
+    });
 
-  $('#3').click(function() {
-  	$('.arrow3').toggle();
-  });
+    $('#2').click(function() {
+    	$('.arrow2').toggle();
+    });
+
+    $('#3').click(function() {
+    	$('.arrow3').toggle();
+    });
 
 
 

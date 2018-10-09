@@ -32,6 +32,7 @@ nav {
 
 .show_main {
 	padding-left: 5em;
+	float: left;
 }
 
 
@@ -156,6 +157,57 @@ a:hover i {
 strong {
 	font-weight: bold;
 }
+
+.comment_avatar {
+	float: left;
+}
+
+.comment_avatar img {
+	width: 35px;
+	height: 35px;
+	object-fit: cover;
+	border: 2px solid white;
+	border-radius: 50%;
+
+	margin: 0 5px;
+}
+
+.comments_window {
+	width: 350px;
+	/*height: 400px;*/
+	/*overflow-y: auto;*/
+	margin-left: 75px;
+	margin-top: 75px;
+	float: left;
+}
+
+.comment {
+	position: relative;
+}
+
+
+
+.user_and_content {
+	float: left;
+	display: inline-block;
+	width: 275px;
+	margin-top: -5px;
+}
+
+.comment_delete {
+	color: purple;
+	top: 10px;
+	float: right;
+	position: relative;
+}
+
+
+.comment_field {
+	float: left;
+	width: 300px;
+}
+
+
 
 
 .video_player {

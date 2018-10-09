@@ -1,6 +1,7 @@
 class Tune < ApplicationRecord
 	belongs_to :user
 	has_one_attached :video
+	has_many :comments, dependent: :destroy
 
 	validates :tunename, presence: true
 	validates :key, presence: true

@@ -1,0 +1,22 @@
+
+
+<% if tune.comments %>
+  <% tune.comments.each do |comment| %>
+    <div class="comm">
+      <div class="username_comment">
+        <%= comment.user.username %>
+      </div>
+      <div class="comment_content">
+        <%= comment.content %>
+      </div>
+      <% if comment.user == current_user %>
+        <%= link_to tune_comment_path(tune, comment), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </div>
+    <div class="comment_form">
+      <%= form_for [tune, tune,comments.new] do |f| %>
+        <%= f.text_field :content, placeholder: "Add a comment..." %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
