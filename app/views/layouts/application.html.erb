@@ -22,7 +22,9 @@
         <a href="#" data-target="mobile-only" class="sidenav-trigger"><i class="material-icons">menu</i></a>
    <!-- Dropdown Trigger -->
   <% if current_user %>
-    <a class='dropdown-trigger right' href='#' data-target='avatar_drop'><%= image_tag(url_for(current_user.avatar)) %></a>
+    <a class='dropdown-trigger right' href='#' data-target='avatar_drop'>
+        <%= image_tag(url_for(current_user.avatar)) %>
+    </a>
     <!-- Dropdown Structure -->
     <ul id='avatar_drop' class='dropdown-content'>
       <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
